@@ -27,7 +27,7 @@ def creatorFunction(num):
     max_room_size = 30
     min_room_size = 10
     big_size = 10
-    room_size = [None, None, None]
+    global room_size
     min_size = 1
     room_bounds = 2
     
@@ -37,28 +37,40 @@ def creatorFunction(num):
     small_cubes = []
     
     def makeBigSize():
+        global room_size
         room_size = [random.randint(min_room_size, max_room_size), random.randint(min_room_size, max_room_size), random.randint(min_room_size, max_room_size)]
-        return room_size
 
 
     def makeSmallSize():
         return random.randint(min_size, 5)
 
-    def getLoc():
-        x = random.randint(0, big_size) - (big_size / 2)
+    def getLocX():
+        global room_size
+        x = random.randint(0, room_size[0] - 2) - ((room_size[0] - 2) / 2)
+        return x
+    def getLocY():
+        global room_size
+        x = random.randint(0, room_size[1] - 2) - ((room_size[1] - 2)/ 2)
         return x
 
     # Create a large cube
-    bpy.ops.mesh.primitive_cube_add(size=1, scale=(makeBigSize()))  # Adjust the size as needed
+    makeBigSize()
+    bpy.ops.mesh.primitive_cube_add(size=1, scale=(room_size[0], room_size[1], room_size[2]))  # Adjust the size as needed
     large_cube = bpy.context.object
-    large_cube.location = (0, 0, (big_size / 2))
+    #print("Roomsize = " + str(room_size))
+    large_cube.location = (0, 0, (room_size[2] / 2))
 
     # Create smaller cubes
     for i in range(small_cube_no):
         bpy.ops.mesh.primitive_cube_add(size=1)  # Adjust the size of smaller cubes
         small_cube = bpy.context.object
-        small_cube.location = (getLoc(), getLoc(), 0.5)  # Position the smaller cubes
+        small_cube.location = (getLocX(), getLocY(), 0.5)  # Position the smaller cubes
         small_cubes.append(small_cube)
+        
+    # Set room as parent
+    for i in small_cubes:
+        i.parent = large_cube
+        i.matrix_parent_inverse = large_cube.matrix_world.inverted()
 
 
 
@@ -71,16 +83,17 @@ def creatorFunction(num):
         j["Object" + str(id) + "_location"] = str(x.location)
         j["Object" + str(id) + "_size"] = str(x.dimensions)
 
-    print(json.dumps(j, indent=4))
+    #print(json.dumps(j, indent=4))
     
     with open("export_data/data" + str(num) + ".json", "w") as outfile:
         json.dump(j, outfile, indent=4)
+        print()
 
-    """
+    
     bpy.ops.wm.collada_export( \
     filepath="export_data/" + str(num) + ".dae", \
     include_children=True, triangulate=True)
-    """
+    
 
-for i in range(5):
+for i in range(1000):
     creatorFunction(i)

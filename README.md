@@ -2,6 +2,11 @@
 
 ---
 
+### Environment:
+1. `conda env create -f environment.yml`
+2. `conda info --envs` OR `conda env list`
+3. `conda activate dataTraining`
+
 ### Files:
 * `blender_room_generator.py`:
     * Used in Blender, generates a large rectangular prism "room" with smaller cubes (children objects) inside
