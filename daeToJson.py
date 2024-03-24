@@ -18,7 +18,8 @@ for root, dirs, files in os.walk(directory):
                 doc = xmltodict.parse(fs.read())
                 dta = {'GENERATED_DATA': doc}
             with open("./export_data2/" + fn + ".json", "w") as outfile:
-                json.dump([descript, dta], outfile, indent=4)
+                ot = json.dumps([descript, dta], separators=(",", ":"))
+                outfile.write(ot)
 
 """
 For exporting back as .dae file, for checking's sake
