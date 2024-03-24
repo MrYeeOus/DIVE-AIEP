@@ -4,9 +4,8 @@ import glob
 result = []
 for f in glob.glob("export_data2/*.json"):
     with open(f) as infile:
-        result.append(infile.read())
+        result.append(str(infile.readline()))
 
 with open("mergedJson.jsonl", "w") as outfile:
     for item in result:
-        json.dump(item, outfile)
-        outfile.write("\n")
+        outfile.write(item + "\n")
