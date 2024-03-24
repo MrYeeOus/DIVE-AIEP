@@ -1,6 +1,7 @@
 import xmltodict
 import os
 import json
+import re
 
 directory = "export_data"
 
@@ -9,17 +10,18 @@ for root, dirs, files in os.walk(directory):
     for filename in files:
         if filename.lower().endswith(".dae"):
             fn = os.path.splitext(os.path.basename(filename))[0]
-            # Concat the json data
+# Concat the json data
             with open("export_data/data" + fn + ".json") as fs:
                 dt = fs.read()
+                dt = re.sub(r"[\n\s]+", "", dt)
                 descript = {'GENERATED_DESCRIPTION' : dt}
 
             with open("export_data/" + filename) as fs:
+# Convert the .dae data
                 doc = xmltodict.parse(fs.read())
-                dta = {'GENERATED_DATA': doc}
+                data = {'GENERATED_DATA': doc}
             with open("./export_data2/" + fn + ".json", "w") as outfile:
-                ot = json.dumps([descript, dta], separators=(",", ":"))
-                outfile.write(ot)
+                outfile.write(str([descript, data]))
 
 """
 For exporting back as .dae file, for checking's sake
