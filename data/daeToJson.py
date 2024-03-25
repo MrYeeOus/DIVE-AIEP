@@ -2,6 +2,7 @@ import xmltodict
 import os
 import json
 import re
+import glob
 
 directory = "export_data"
 
@@ -29,10 +30,21 @@ for root, dirs, files in os.walk(directory):
                 #data = data.replace("}", "]")
             with open("./export_data2/" + fn + ".json", "w") as outfile:
                 combinedData = [descript, data]
-                combinedData = {"\"objectData\"" : combinedData}
+                #combinedData = {"\"objectData\"" : combinedData}
 
                 towrite = str(combinedData).replace("'", "")
                 outfile.write(towrite)
+
+
+result = []
+for f in glob.glob("export_data2/*.json"):
+    print("Processing: " + str(f))
+    with open(f) as infile:
+        result.append(str(infile.readline()))
+
+with open("mergedJson.jsonl", "w") as outfile:
+    for item in result:
+        outfile.write(item + "\n")
 
 """
 For exporting back as .dae file, for checking's sake
