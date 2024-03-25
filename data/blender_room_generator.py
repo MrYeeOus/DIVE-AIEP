@@ -86,7 +86,7 @@ def creatorFunction(num):
     #print(json.dumps(j, indent=4))
     
     with open("export_data/data" + str(num) + ".json", "w") as outfile:
-        json.dump(j, outfile, indent=4)
+        json.dump(j, outfile)
         print()
 
     
