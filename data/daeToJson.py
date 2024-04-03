@@ -15,7 +15,8 @@ for root, dirs, files in os.walk(directory):
 # Concat the json data
             with open("export_data/data" + fn + ".json") as fs:
                 dt = json.load(fs)
-                descript = {"GENERATED_DESCRIPTION" : dt}
+                #descript = {"GENERATED_DESCRIPTION" : dt}
+                descript = dt;
                 descript = str(descript).replace("'", "\"")
                 #descript = descript.replace("{", "[")
                 #descript = descript.replace("}", "]")
@@ -23,7 +24,8 @@ for root, dirs, files in os.walk(directory):
             with open("export_data/" + filename) as fs:
 # Convert the .dae data
                 doc = xmltodict.parse(fs.read())
-                data = {"GENERATED_DATA" : doc}
+                #data = {"GENERATED_DATA" : doc}
+                data = doc
                 data = str(data).replace("'", "\"")
                 data = data.replace("None", "\"None\"")
                 #data = data.replace("{", "[")
