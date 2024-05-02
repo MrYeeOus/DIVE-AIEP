@@ -14,4 +14,9 @@
     * Converts `.dae` files (xml-based) into `.json` format. Combines the resulting file with the generated `.json` descriptor file, and creates a supertype for `generated_data` and `generated_description`
 * `jsonConcat.py`:
     * Merges all `.json` files into a single `.jsonl` file, for use as a dataset
-* 
+* `json2dae.ipynb`:
+    * Jupyter notebook for training seq2seq model on dataset
+
+---
+
+_This repo needs cleaning up._

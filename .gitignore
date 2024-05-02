@@ -1,2 +1,6 @@
-export_data/
-export_data2/
+data/export_data/
+data/export_data2/
+ignore/
+notebooks/
+data/*.zip
+data/pickleNotes.md
