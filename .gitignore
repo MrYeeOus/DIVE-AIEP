@@ -1,5 +1,4 @@
 data/v1/
 ignore/
-notebooks/
 data/*.zip
 data/pickleNotes.md
