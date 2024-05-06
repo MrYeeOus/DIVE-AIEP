@@ -2,3 +2,6 @@ data/v1/
 ignore/
 data/*.zip
 data/pickleNotes.md
+*.dae
+*.json
+outpoot/
