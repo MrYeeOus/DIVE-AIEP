@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JSON file format --> COLLADA format
 
 ---
@@ -20,3 +21,14 @@
 ---
 
 _This repo needs cleaning up._
+=======
+Activate Jupyter Labs with:
+
+1. `conda activate jupyterLabs`
+2. jupyter lab
+
+
+---
+
+This repo needs cleaning up.
+>>>>>>> notebooks/master
