@@ -1,5 +1,4 @@
-data/export_data/
-data/export_data2/
+data/v1/
 ignore/
 notebooks/
 data/*.zip
