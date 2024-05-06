@@ -79,11 +79,6 @@ def creatorFunction(num):
         small_cubes.append(small_cube)
         small_cube.name = "Object_" + str(i)
         small_cube.data.name = "Object_" + str(i)
-        
-    # Set room as parent
-#    for i in small_cubes:
-#        i.parent = large_cube
-#        i.matrix_parent_inverse = large_cube.matrix_world.inverted()
 
     large_cube_details = {
         "room_cuboid": {
@@ -118,6 +113,6 @@ def creatorFunction(num):
             triangulate=True)
         bpy.context.scene.objects[id].select_set(False)
 
-for i in range(1):
+for i in range(100):
     creatorFunction(i)
     # Creates {i_0.dae == room}, {i_x.dae == object}, {i.json == description}
