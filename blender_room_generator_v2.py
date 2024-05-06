@@ -85,27 +85,26 @@ def creatorFunction(num):
 #        i.parent = large_cube
 #        i.matrix_parent_inverse = large_cube.matrix_world.inverted()
 
-
-
-    j = {
-        "room_cuboid_location": str(large_cube.location),
-        "room_cuboid_size": str(large_cube.dimensions)
+    large_cube_details = {
+        "room_cuboid": {
+            "location": str(large_cube.location),
+            "size": str(large_cube.dimensions)
+        }
     }
-
+    
+    small_cube_details = {}
     for id, x in enumerate(small_cubes):
-        j["Object_" + str(id) + ".location"] = str(x.location)
-        j["Object_" + str(id) + ".size"] = str(x.dimensions)
-
-    #print(json.dumps(j, indent=4))
+        tmp = {
+            "Object_" + str(id): {
+                "location": str(x.location),
+                "size": str(x.dimensions)
+            }
+        }
+        small_cube_details.update(tmp)
     
     with open("export_data/v1/json/" + str(num) + ".json", "w") as outfile:
-        json.dump(j, outfile, indent=4)
+        json.dump(large_cube_details | small_cube_details, outfile, indent=4)
         print()
-
-    
-    # bpy.ops.wm.collada_export( \
-    # filepath="export_data/v1/dae/" + str(num) + ".dae", \
-    # include_children=True, triangulate=True)
     
     for o in bpy.context.scene.objects:
         o.select_set(False)
