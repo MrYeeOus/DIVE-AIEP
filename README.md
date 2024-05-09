@@ -32,3 +32,5 @@ Activate Jupyter Labs with:
 
 This repo needs cleaning up.
 >>>>>>> notebooks/master
+
+* 6/5/24: Odd error where there are more files being produced than number of objects (room/cubes). Must investigate.
