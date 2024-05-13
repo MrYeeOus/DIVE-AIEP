@@ -34,3 +34,6 @@ This repo needs cleaning up.
 >>>>>>> notebooks/master
 
 * 6/5/24: Odd error where there are more files being produced than number of objects (room/cubes). Must investigate.
+* Abandoned: ~9/5/24: `sliding_window` branch for implementing a sliding window for long target sequences~
+* 11/5/24: Working example of translating `.json` to `.dae`: see `json2dae_v2.ipynb`
+    * Requires tweaks to training data to produce a result that can be directly imported into a `.dae` structure
