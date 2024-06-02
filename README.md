@@ -1,9 +1,8 @@
-# ~JSON file format --> COLLADA format~
 # DIVE-AIP: Development of Interactive Virtual Environments using AI-Enhanced Photogrammetry
-    * Given a single source image, this project will produce a COLLADA scene with interactive objects representing objects within the source image.
-    * At present (pre-cleanup), the two important files are:
-        * `object_detection.ipynb`: Load an image and it will produce a JSON file, to be loaded into
-        * `json2dae_v2.ipynb`: Which will generate a COLLADA fragment for each line in the JSON file. This code fragment will need to be reinserted into a COLLADA file structure (of which the function to do so has not yet been uploaded to this repo).
+* Given a single source image, this project will produce a COLLADA scene with interactive objects representing objects within the source image.
+* At present (pre-cleanup), the two important files are:
+    * `object_detection.ipynb`: Load an image and it will produce a JSON file, to be loaded into
+    * `json2dae_v2.ipynb`: Which will generate a COLLADA fragment for each line in the JSON file. This code fragment will need to be reinserted into a COLLADA file structure (of which the function to do so has not yet been uploaded to this repo).
 
 ---
 
