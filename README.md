@@ -3,6 +3,11 @@
 
 ---
 ## Update June 2024:
+_Sample output of the DIVE-AIP pipeline - source image added in post._
+The following image showcases the development of a 3D environment, with individual placeholder assets that represent objects in the source scene.
+
+![DIVE-AIP pipeline output sample](./output.gif)
+
 Thesis completed. Research paper can be viewed [here](./BenjaminYee_45425108_ThesisB.pdf).
 
 ---
