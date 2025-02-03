@@ -1,8 +1,9 @@
 # DIVE-AIP: Development of Interactive Virtual Environments using AI-Enhanced Photogrammetry
-* Given a single source image, this project will produce a COLLADA scene with interactive objects representing objects within the source image.
-* At present (pre-cleanup), the two important files are:
-    * `object_detection.ipynb`: Load an image and it will produce a JSON file, to be loaded into
-    * `json2dae_v2.ipynb`: Which will generate a COLLADA fragment for each line in the JSON file. This code fragment will need to be reinserted into a COLLADA file structure (of which the function to do so has not yet been uploaded to this repo).
+* The DIVE-AIP pipline explores a novel method of quickly creating virtual environments that simulates real-world scenarios from a single image. In this process, we are able to create a 3D scene that not only matches the scale of the source scene, but also produces independent placeholder assets that represent objects in the source scene. The DIVE-AIP pipeline aims to fast-track the development of virtual environments by reducing the time spent in developing 3D assets.
+
+---
+## Update June 2024:
+Thesis completed. Research paper can be viewed [here](./BenjaminYee_45425108_ThesisB.pdf).
 
 ---
 
@@ -25,7 +26,7 @@
 
 ---
 
-_This repo needs cleaning up. Some or all of these steps may not apply to your system._
+_This repo needs cleaning up - there are currently a lot of fluff files and vague naming conventions. Some or all of these steps may not apply to your system._
 =======
 Activate Jupyter Labs with:
 
@@ -34,11 +35,3 @@ Activate Jupyter Labs with:
 
 
 ---
-
-This repo needs cleaning up.
->>>>>>> notebooks/master
-
-* 6/5/24: Odd error where there are more files being produced than number of objects (room/cubes). Must investigate.
-* Abandoned: ~9/5/24: `sliding_window` branch for implementing a sliding window for long target sequences~
-* 11/5/24: Working example of translating `.json` to `.dae`: see `json2dae_v2.ipynb`
-    * Requires tweaks to training data to produce a result that can be directly imported into a `.dae` structure
